@@ -335,12 +335,11 @@ body {
     </div>
     <div id="player-content">
       <div id="album-art">
-        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/21/Ive_-_Off_the_Record.png/220px-Ive_-_Off_the_Record.png" class="active" id="_1">
-        <img src="https://images.genius.com/7bbbe063018ce7831e055a466b803572.1000x1000x1.jpg" id="_2">
-        <img src="https://pbs.twimg.com/media/F6w4yhpW8AA2KwJ?format=jpg&name=4096x4096" id="_3">
-        <img src="https://images.genius.com/7bbbe063018ce7831e055a466b803572.1000x1000x1.jpg" id="_4">
-        <img src="https://images.genius.com/7bbbe063018ce7831e055a466b803572.1000x1000x1.jpg" id="_5">
-        <img src="https://images.genius.com/7bbbe063018ce7831e055a466b803572.1000x1000x1.jpg" id="_6">
+        <img src="https://i.scdn.co/image/ab67616d0000b27306d8af2032b49e9b0fa55829" class="active" id="_1">
+        <img src="https://static.wikia.nocookie.net/iz-one/images/4/45/HeartIzAlbumCoverDigital.jpg/revision/latest?cb=20190527004730" id="_2">
+        <img src="https://static.wikia.nocookie.net/iz-one/images/e/e0/BLOOM%2AIZ_Digital_Cover.jpg/revision/latest?cb=20200202153152" id="_3">
+        <img src="https://static.wikia.nocookie.net/iz-one/images/d/dc/Oneiric_Diary_Digital.jpg/revision/latest?cb=20200613150349" id="_4">
+        <img src="https://i1.sndcdn.com/artworks-XREZpn70Rx7nm5op-WPXDmQ-t500x500.jpg" id="_5">
         <div id="buffer-box">Buffering ...</div>
       </div>
       <div id="player-controls">
@@ -397,29 +396,26 @@ $(function () {
     buffInterval = null,
     tFlag = false,
     albums = [
-      "I've MINE",
-      "I've MINE",
-      "I've MINE",
-      "I've MINE",
-      "I've MINE",
-      "I've MINE"
+      "COLOR*IZ",
+      "HEART*IZ",
+      "BLOOM*IZ",
+      "Oneiric Diary",
+      "One-Reeler/Act IV"
     ],
     trackNames = [
-      "Off the Record",
-      "Baddie",
-      "Either Way",
-      "Holy Moly",
-      "OTT",
-      "Payback"
+      "La Vie en Rose",
+      "Violeta",
+      "FIESTA",
+      "Secret Story of the Swan",
+      "Panorama"
     ],
-    albumArtworks = ["_1", "_2", "_3", "_4", "_5", "_6"],
+    albumArtworks = ["_1", "_2", "_3", "_4", "_5"],
     trackUrl = [
-      "https://firebasestorage.googleapis.com/v0/b/widget-1ab73.appspot.com/o/01.%20IVE%20-%20Off%20The%20Record%20(320%20kbps).mp3?alt=media&token=56c1d55d-d40b-48e8-a350-8ff79e8e838d",
-      "https://firebasestorage.googleapis.com/v0/b/widget-1ab73.appspot.com/o/02.%20IVE%20-%20Baddie%20(320%20kbps).mp3?alt=media&token=2e8f65c4-ce44-4ebc-a0a7-1426baac9b03",
-      "https://firebasestorage.googleapis.com/v0/b/widget-1ab73.appspot.com/o/03.%20IVE%20-%20Either%20Way.mp3?alt=media&token=0145aeef-fa23-4f66-aee1-acd1b7e3f971",
-      "https://firebasestorage.googleapis.com/v0/b/widget-1ab73.appspot.com/o/04.%20IVE%20-%20Holy%20Moly%20(320%20kbps).mp3?alt=media&token=3f6741cc-2082-4fc3-b9f8-31a225187f01",
-      "https://firebasestorage.googleapis.com/v0/b/widget-1ab73.appspot.com/o/05.%20IVE%20-%20OTT.mp3?alt=media&token=49ce3768-00b7-45a5-aa7e-cf098738e6a6",
-      "https://firebasestorage.googleapis.com/v0/b/widget-1ab73.appspot.com/o/06.%20IVE%20-%20Payback.mp3?alt=media&token=d622249b-91ff-4fc5-9d7a-81361eb814d3"
+      "https://firebasestorage.googleapis.com/v0/b/widget-1ab73.appspot.com/o/IZ%EF%BC%8AONE%20(%E1%84%8B%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%8C%E1%85%B3%E1%84%8B%E1%85%AF%E1%86%AB)%20-%20%E1%84%85%E1%85%A1%E1%84%87%E1%85%B5%E1%84%8B%E1%85%A1%E1%86%BC%E1%84%85%E1%85%A9%E1%84%8C%E1%85%B3%20(La%20Vie%20en%20Rose)%20MV%20(1).mp3?alt=media&token=b68c1e27-c19c-496e-8e7d-36fa1d0df8a1",
+      "https://firebasestorage.googleapis.com/v0/b/widget-1ab73.appspot.com/o/IZ%EF%BC%8AONE%20(%E1%84%8B%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%8C%E1%85%B3%E1%84%8B%E1%85%AF%E1%86%AB)%20-%20%E1%84%87%E1%85%B5%E1%84%8B%E1%85%A9%E1%86%AF%E1%84%85%E1%85%A6%E1%84%90%E1%85%A1%20(Violeta)%20MV.mp3?alt=media&token=1784ea57-dccf-4f39-a7d4-9b4865d5f270",
+      "https://firebasestorage.googleapis.com/v0/b/widget-1ab73.appspot.com/o/IZ%EF%BC%8AONE%20(%E1%84%8B%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%8C%E1%85%B3%E1%84%8B%E1%85%AF%E1%86%AB)%20-%20'FIESTA'%20MV.mp3?alt=media&token=19144cc4-f7a4-4cb1-9ee6-8ac0f4c0dbca",
+      "https://firebasestorage.googleapis.com/v0/b/widget-1ab73.appspot.com/o/IZ%EF%BC%8AONE%20(%E1%84%8B%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%8C%E1%85%B3%E1%84%8B%E1%85%AF%E1%86%AB)%20-%20%E1%84%92%E1%85%AA%E1%86%AB%E1%84%89%E1%85%A1%E1%86%BC%E1%84%83%E1%85%A9%E1%86%BC%E1%84%92%E1%85%AA%20(Secret%20Story%20of%20the%20Swan)%20MV.mp3?alt=media&token=0a819915-4760-4067-9a52-ae45d51902e4",
+      "https://firebasestorage.googleapis.com/v0/b/widget-1ab73.appspot.com/o/IZ_ONE%20(%E1%84%8B%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%8C%E1%85%B3%E1%84%8B%E1%85%AF%E1%86%AB)%20'Panorama'%20MV%20(320%20kbps).mp3?alt=media&token=6fc2a69d-026c-4510-93e1-a4764cd06746"
     ],
     playPreviousTrackButton = $("#play-previous"),
     playNextTrackButton = $("#play-next"),
